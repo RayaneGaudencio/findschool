@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Admin from "./pages/Admin/Admin";
+import CadastroAdmin from "./pages/Admin/CadastroAdmin";
 
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/admins" Component={Admin}/>
+        <Route path="/admins" Component={CadastroAdmin}/>
       </Routes>
     </Router>
   );
