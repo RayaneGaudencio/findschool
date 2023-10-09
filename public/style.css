@@ -1,0 +1,32 @@
+/* Reset Padrão CSS */
+html {
+    font-size: 16px; /* usar rem para definir tamanho de fonte */
+}
+
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, figcaption, blockquote, dl, dd {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+    color: inherit;
+}
+
+
+  
