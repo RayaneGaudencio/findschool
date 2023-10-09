@@ -1,8 +1,15 @@
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Admin from "./pages/Admin/Admin";
+
+
 function App() {
   return (
-    <div className="App">
-      <h1>Aplicação FindSchool</h1>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/admins" Component={Admin}/>
+      </Routes>
+    </Router>
   );
 }
 
