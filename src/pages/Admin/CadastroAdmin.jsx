@@ -74,7 +74,9 @@ const CadastroAdmin = () => {
 
     if (Object.keys(newErrors).length === 0) {
     try {
-        const response = await axios.post(`${API_URL}/admins`, formData);
+        const response = await axios.post(`${API_URL}/admins`, formData, {
+          withCredentials: true
+        });
         console.log('Administrador cadastrado com sucesso:', response.data);
     } catch (error) {
         console.error('Erro ao cadastrar administrador:', error);
@@ -109,7 +111,7 @@ return (
       <Input type="password" name="senha" value={formData.senha} onChange={handleInputChange} />
       {errors.senha && <DescricaoDadoIncorreto>{errors.senha}</DescricaoDadoIncorreto>}
       <CenteredContent>
-        <Button type="submit">Cadastrar</Button>
+        <Button type="submit" onClick={handleCadastroAdmin}>Cadastrar</Button>
       </CenteredContent>
     </FormContainer>
   </DisplayFlexRow>
