@@ -3,7 +3,7 @@ import Title2 from '../../components/form/Title2';
 import Input from '../../components/form/Input';
 import Button from '../../components/form/Button';
 import { FormContainer, CenteredContent } from '../../components/form/FormContainer';
-import DisplayFlexRow from '../../utils/DisplayFlexRow';
+import DisplayFlex from '../../utils/DisplayFlex';
 import DescricaoSobInput from '../../components/form/DescricaoSobInput';
 import FundoComLogo from '../../components/FundoComLogo';
 import LogoSVG from '../../img/logo-e-nome.svg'
@@ -103,7 +103,7 @@ const CadastroAdmin = () => {
 
 
   return (
-    <DisplayFlexRow>
+    <DisplayFlex>
       <FundoComLogo>
         <img src={LogoSVG} alt="Logo branca FindSchool" style={{ width: '500px', height: 'auto' }}></img>
       </FundoComLogo>
@@ -155,7 +155,7 @@ const CadastroAdmin = () => {
           <Button type="submit">Cadastrar</Button>
         </CenteredContent>
       </FormContainer>
-    </DisplayFlexRow>
+    </DisplayFlex>
   );
 };
 
