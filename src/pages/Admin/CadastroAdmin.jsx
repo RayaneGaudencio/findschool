@@ -29,6 +29,8 @@ const CadastroAdmin = () => {
 
   const [formErros, setFormErros] = useState({ erros: false, mensagem: ""})
 
+  const [responseErros, setResponseErros] = useState({ temErrosNaResposta: false, mensagem: ""})
+
   const enviarFormulario = async (e) => {
     for (const campo in formData) {
       if (formData[campo].trim() === '') {
@@ -44,9 +46,11 @@ const CadastroAdmin = () => {
           withCredentials: true
         });
         console.log('Administrador cadastrado com sucesso:', response.data);
-        // window.location.reload();
+        window.location.reload();
       } catch (error) {
         console.error('Erro ao cadastrar administrador:', error);
+        const mensagemDeErro = error.response.data.errors[0];
+        setResponseErros({temErrosNaResposta: true, mensagem: mensagemDeErro})
       }
     }
   };
@@ -147,6 +151,7 @@ const CadastroAdmin = () => {
         {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
         <CenteredContent>
            {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
+           {responseErros && <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>}
           <Button type="submit">Cadastrar</Button>
         </CenteredContent>
       </FormContainer>
