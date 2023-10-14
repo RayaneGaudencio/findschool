@@ -150,8 +150,10 @@ const CadastroAdmin = () => {
         />
         {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
         <CenteredContent>
-           {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
-           {responseErros && <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>}
+        {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
+        {(responseErros && !formErros) && (
+          <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>
+        )}
           <Button type="submit">Cadastrar</Button>
         </CenteredContent>
       </FormContainer>
