@@ -7,7 +7,7 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/admins" Component={CadastroAdmin}/>
+        <Route path="/cadastro_admin" Component={CadastroAdmin}/>
       </Routes>
     </Router>
   );
