@@ -6,6 +6,11 @@ const FundoComLogo = styled.div`
   height: 100vh;
   display: flex;
   justify-content: center;
+
+  @media (max-width: 900px) {
+    height: 10vh;
+    width: 100vw;
+  }
 `;
 
 export default FundoComLogo
