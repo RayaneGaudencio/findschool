@@ -5,7 +5,7 @@ import Button from '../../components/form/Button';
 import { FormContainer, CenteredContent } from '../../components/form/FormContainer';
 import DisplayFlex from '../../utils/DisplayFlex';
 import DescricaoSobInput from '../../components/form/DescricaoSobInput';
-import FundoComLogo from '../../components/FundoComLogo';
+import { FundoComLogo, LogoImagem } from '../../components/FundoComLogo';
 import LogoSVG from '../../img/logo-e-nome.svg'
 import API_URL from '../../config/config'
 import axios from "axios";
@@ -105,7 +105,7 @@ const CadastroAdmin = () => {
   return (
     <DisplayFlex>
       <FundoComLogo>
-        <img src={LogoSVG} alt="Logo branca FindSchool" style={{ width: '500px', height: 'auto' }}></img>
+        <LogoImagem src={LogoSVG} alt="Logo branca FindSchool" />
       </FundoComLogo>
       <FormContainer onSubmit={(event) => {
         event.preventDefault();
