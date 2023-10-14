@@ -4,11 +4,11 @@ import styled from "styled-components";
 // em 900px tela flex-direction passa a ser column, posicionando os itens um abaixo do outro
 const DisplayFlex = styled.div`
   display: flex;
-  align-items: center;
   background-color: white;
 
-  @media (max-width: 900px) {
+  @media (max-width: 700px) {
     flex-direction: column;
+    gap: 2rem;
   }
 `;
 

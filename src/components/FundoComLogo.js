@@ -2,15 +2,18 @@ import styled from "styled-components";
 
 const FundoComLogo = styled.div`
   background-color: #150096;
-  width: 50vw;
-  height: 100vh;
   display: flex;
   justify-content: center;
 
-  @media (max-width: 900px) {
-    height: 10vh;
+  @media (max-width: 700px) {
+    height: 5rem;
     width: 100vw;
   }
 `;
 
-export default FundoComLogo
+const LogoImagem = styled.img`
+  width: 500px;
+  height: auto;
+`;
+
+export { FundoComLogo, LogoImagem }
