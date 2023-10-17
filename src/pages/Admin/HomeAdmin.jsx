@@ -52,7 +52,7 @@ const HomeAdmin = () => {
       </SecondColumn> : 
        <SecondColumn>
        <ImagemPerfil src={Circulo} /> 
-         <NomePerfil>Nome perfil</NomePerfil>
+         <NomePerfil>{usuario.nome}</NomePerfil>
          <ButtonOpcoes>Adicionar Escola</ButtonOpcoes>
          <ButtonOpcoes>Remover Escola</ButtonOpcoes>
          <ButtonOpcoes>Editar Escola</ButtonOpcoes>
