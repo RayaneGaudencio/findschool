@@ -5,7 +5,7 @@ import styled from "styled-components";
 const DisplayFlex = styled.div`
   display: flex;
   background-color: white;
-
+  min-height: 100vh;
   @media (max-width: 700px) {
     flex-direction: column;
     gap: 2rem;
