@@ -49,7 +49,8 @@ const CadastroAdmin = () => {
         window.location.reload();
       } catch (error) {
         console.error('Erro ao cadastrar administrador:', error);
-        const mensagemDeErro = error.response.data.errors[0];
+        const mensagemDeErro = error.response.data.message;
+        setFormErros({erros: false, mensagem: ""})
         setResponseErros({temErrosNaResposta: true, mensagem: mensagemDeErro})
       }
     }
@@ -151,7 +152,7 @@ const CadastroAdmin = () => {
         {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
         <CenteredContent>
         {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
-        {(responseErros && !formErros) && (
+        {(responseErros && !formErros.erros) && (
           <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>
         )}
           <Button type="submit">Cadastrar</Button>
