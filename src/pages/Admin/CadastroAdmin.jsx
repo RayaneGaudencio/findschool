@@ -11,6 +11,7 @@ import API_URL from '../../config/config'
 import axios from "axios";
 import { validateNomeCompleto, validateCPF, validateEmail, validateSenha } from '../../validations/validaDadosCadastro';
 import DescricaoDadoIncorreto from '../../components/form/DadoIncorreto';
+import { useNavigate } from "react-router-dom";
 
 const CadastroAdmin = () => {
   const [formData, setFormData] = useState({
@@ -31,6 +32,8 @@ const CadastroAdmin = () => {
 
   const [responseErros, setResponseErros] = useState({ temErrosNaResposta: false, mensagem: ""})
 
+  let navigate = useNavigate();
+
   const enviarFormulario = async (e) => {
     for (const campo in formData) {
       if (formData[campo].trim() === '') {
@@ -46,7 +49,16 @@ const CadastroAdmin = () => {
           withCredentials: true
         });
         console.log('Administrador cadastrado com sucesso:', response.data);
-        window.location.reload();
+        // window.location.reload();
+
+        const usuario = {
+          nome: response.data.nome,
+          email: response.data.email
+        }
+
+        // Redirecionamento para a página HomeAdmin com os dados do usuário cadastrado
+        navigate(`/admin`, { state: { usuario } });
+
       } catch (error) {
         console.error('Erro ao cadastrar administrador:', error);
         const mensagemDeErro = error.response.data.message;

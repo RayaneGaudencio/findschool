@@ -10,12 +10,15 @@ import Circulo from '../../img/circulo.svg'
 import ImagemPerfil from '../../components/pagina_admin/SecondColum/ImagemPerfil'
 import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes'
-
+import { useLocation } from 'react-router-dom';
 
 const HomeAdmin = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
   
+  const location = useLocation();
+  const { usuario } = location.state;
+
   return (
     <ContainerPage>
         <FirstColumn>
@@ -37,11 +40,11 @@ const HomeAdmin = () => {
             <div>
              <StyledImageIcon src={IconLogoutSVG}/>        
             </div>
-        </FirstColumn> {/*Mude a lógica abaixo para considerar IconSeguranca clicado e ir para terceira coluna de SecondColumn*/}
+        </FirstColumn>
         {isIconPerfilClicked ? 
         <SecondColumn> 
           <ImagemPerfil src={Circulo} />
-          <NomePerfil>Nome perfil</NomePerfil>
+          <NomePerfil>{usuario.nome}</NomePerfil>
           <ButtonOpcoes>Editar Perfil</ButtonOpcoes>
           <ButtonOpcoes>Pedidos</ButtonOpcoes>
           <ButtonOpcoes>Relatorios</ButtonOpcoes>
