@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import ContainerPage from '../../components/pagina_admin/ContainerPage'
 import FirstColumn from '../../components/pagina_admin/FirstColumn/FirstColumn'
 import StyledImageIcon from '../../components/pagina_admin/FirstColumn/ImageIcon'
@@ -15,7 +15,18 @@ import { useLocation } from 'react-router-dom';
 const HomeAdmin = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
+  const [isButtonAddEscolaClicked, setIsButtonAddEscolaClicked] = useState(false)
   
+  useEffect(() => {
+    if (isIconPerfilClicked && isIconEditarClicked) {
+      setIconEditarClicked(false);
+    }
+
+    if (isIconEditarClicked) {
+      setIconPerfilClicked(false);
+    }
+  }, [isIconPerfilClicked, isIconEditarClicked]);
+
   const location = useLocation();
   const { usuario } = location.state;
 
@@ -43,19 +54,31 @@ const HomeAdmin = () => {
         </FirstColumn>
         {isIconPerfilClicked ? 
         <SecondColumn> 
-          <ImagemPerfil src={Circulo} />
-          <NomePerfil>{usuario.nome}</NomePerfil>
-          <ButtonOpcoes>Editar Perfil</ButtonOpcoes>
-          <ButtonOpcoes>Pedidos</ButtonOpcoes>
-          <ButtonOpcoes>Relatorios</ButtonOpcoes>
-          <ButtonOpcoes>Calendário</ButtonOpcoes>
+          <div>
+            <ImagemPerfil src={Circulo} />
+            <NomePerfil>{usuario.nome}</NomePerfil>
+          </div>
+          <div>
+            <ButtonOpcoes>Editar Perfil</ButtonOpcoes>
+            <ButtonOpcoes>Pedidos</ButtonOpcoes>
+            <ButtonOpcoes>Relatorios</ButtonOpcoes>
+            <ButtonOpcoes>Calendário</ButtonOpcoes>
+          </div>
       </SecondColumn> : 
        <SecondColumn>
-       <ImagemPerfil src={Circulo} /> 
-         <NomePerfil>{usuario.nome}</NomePerfil>
-         <ButtonOpcoes>Adicionar Escola</ButtonOpcoes>
+        <div>
+          <ImagemPerfil src={Circulo} /> 
+          <NomePerfil>{usuario.nome}</NomePerfil>
+        </div>
+        <div>
+         <ButtonOpcoes
+         isClicked={isButtonAddEscolaClicked}
+          onClick={() => {
+            setIsButtonAddEscolaClicked(true)}}
+          >Adicionar Escola</ButtonOpcoes>
          <ButtonOpcoes>Remover Escola</ButtonOpcoes>
          <ButtonOpcoes>Editar Escola</ButtonOpcoes>
+        </div>
        </SecondColumn>}
     </ContainerPage>
   )
