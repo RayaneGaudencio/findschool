@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ImageIcon = styled.img`
-  width: 1.6em;
-  padding: 0.8em;
+  width: 1.5em;
+  padding: 1.4em;
   cursor: pointer;
   ${(props) => props.isClicked && 'background-color: #150096;'}
 `;
