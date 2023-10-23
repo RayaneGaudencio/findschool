@@ -88,7 +88,6 @@ const HomeAdmin = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddEscolaClicked) && 
       <AddEscola />}
-      {(isButtonRemoverEscolaClicked && <AddEscola />)}
     </ContainerPage>
   )
 }
