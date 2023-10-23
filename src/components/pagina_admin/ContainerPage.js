@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ContainerPage = styled.main`
     font-size: 14px;
     display: grid;
-    grid-template-columns: 0.3fr 1.5fr 7fr;
+    grid-template-columns: 0.3fr 2fr 7fr;
     height: 100vh; 
 
     & > div:nth-child(1) {
