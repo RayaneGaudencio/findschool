@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import CadastroAdmin from "./pages/Admin/CadastroAdmin";
 import HomeAdmin from "./pages/Admin/HomeAdmin";
 import LoginAdmin from "./pages/Admin/LoginAdmin";
+import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 
 
 
@@ -13,6 +14,7 @@ function App() {
         <Route path="/cadastro_admin" Component={CadastroAdmin}/>
         <Route path="/admin" Component={HomeAdmin}/>
         <Route path="/login_admin" Component={LoginAdmin}/>
+        <Route path="/cadastro_usuario" Component={CadastroUsuario}/>
       </Routes>
     </Router>
   );
