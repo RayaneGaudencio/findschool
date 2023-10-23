@@ -6,7 +6,7 @@ import Title2 from '../../components/form/Title2'
 import DescricaoSobInput from '../../components/form/DescricaoSobInput'
 import Input from '../../components/form/Input'
 import { FundoComLogo, LogoImagem } from '../../components/FundoComLogo'
-import Button from '../../components/form/Button'
+import Button from '../../components/Button'
 import axios from "axios";
 import API_URL from '../../config/config'
 import DescricaoDadoIncorreto from '../../components/form/DadoIncorreto'

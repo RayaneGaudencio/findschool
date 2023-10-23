@@ -8,6 +8,9 @@ const SecondColumn = styled.div`
 
     & > div:nth-child(1) {
         padding: 1.5em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     & > div:nth-child(2) {

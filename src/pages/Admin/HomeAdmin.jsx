@@ -5,18 +5,20 @@ import StyledImageIcon from '../../components/pagina_admin/FirstColumn/ImageIcon
 import IconPerfilSVG from '../../img/perfil.svg'
 import IconEditarSVG from  '../../img/editar.svg'
 import IconLogoutSVG from  '../../img/logout.svg'
-import SecondColumn from '../../components/pagina_admin/SecondColum/SecondColumn'
+import SecondColumn from '../../components/pagina_admin/SecondColum/SecondColumn.styled.js'
 import Circulo from '../../img/circulo.svg'
 import ImagemPerfil from '../../components/pagina_admin/SecondColum/ImagemPerfil'
 import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
+import AddEscola from '../../components/pagina_admin/ThirdColumn/Add-Escola/FormAddEscola'
 
 const HomeAdmin = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
   const [isButtonAddEscolaClicked, setIsButtonAddEscolaClicked] = useState(false)
-  
+  const [isButtonRemoverEscolaClicked, setIsButtonRemoverEscolaClicked] = useState(false)
+
   useEffect(() => {
     if (isIconPerfilClicked && isIconEditarClicked) {
       setIconEditarClicked(false);
@@ -64,22 +66,29 @@ const HomeAdmin = () => {
             <ButtonOpcoes>Relatorios</ButtonOpcoes>
             <ButtonOpcoes>Calendário</ButtonOpcoes>
           </div>
-      </SecondColumn> : 
-       <SecondColumn>
-        <div>
-          <ImagemPerfil src={Circulo} /> 
-          <NomePerfil>{usuario.nome}</NomePerfil>
-        </div>
-        <div>
-         <ButtonOpcoes
-         isClicked={isButtonAddEscolaClicked}
+        </SecondColumn> : 
+        <SecondColumn>
+          <div>
+            <ImagemPerfil src={Circulo} /> 
+            <NomePerfil>{usuario.nome}</NomePerfil>
+          </div>
+          <div>
+          <ButtonOpcoes
+          isClicked={isButtonAddEscolaClicked}
+            onClick={() => {
+              setIsButtonAddEscolaClicked(true)}}
+            >Adicionar Escola</ButtonOpcoes>
+          <ButtonOpcoes
+          isClicked={isButtonRemoverEscolaClicked}
           onClick={() => {
-            setIsButtonAddEscolaClicked(true)}}
-          >Adicionar Escola</ButtonOpcoes>
-         <ButtonOpcoes>Remover Escola</ButtonOpcoes>
-         <ButtonOpcoes>Editar Escola</ButtonOpcoes>
-        </div>
-       </SecondColumn>}
+            setIsButtonRemoverEscolaClicked(true)}}
+          >Remover Escola</ButtonOpcoes>
+          <ButtonOpcoes>Editar Escola</ButtonOpcoes>
+          </div>
+        </SecondColumn>}
+      {(isIconEditarClicked && isButtonAddEscolaClicked) && 
+      <AddEscola />}
+      {(isButtonRemoverEscolaClicked && <AddEscola />)}
     </ContainerPage>
   )
 }
