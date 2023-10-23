@@ -55,9 +55,9 @@ const AddEscola = () => {
             <DescricaoSobInput>Email</DescricaoSobInput>
             <Input style={{width: '70%'}}/>
             <DescricaoSobInput>CNPJ</DescricaoSobInput>
-            <Input />
+            <Input style={{width: '40%'}}/>
             <DescricaoSobInput>Senha</DescricaoSobInput>
-            <Input />
+            <Input style={{width: '40%'}}/>
         </form>
         <div>
             <Button>Adicionar</Button>
