@@ -11,7 +11,9 @@ import ImagemPerfil from '../../components/pagina_admin/SecondColum/ImagemPerfil
 import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
-import AddEscola from '../../components/pagina_admin/ThirdColumn/Add-Escola/FormAddEscola'
+import AddEscola from './AddEscola'
+
+
 
 const HomeAdmin = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
