@@ -31,6 +31,20 @@ const HomeAdmin = () => {
     }
   }, [isIconPerfilClicked, isIconEditarClicked]);
 
+  useEffect(() => {
+   if (isIconEditarClicked && isButtonAddEscolaClicked) {
+    setIsButtonRemoverEscolaClicked(false)
+   }
+  }, [isButtonAddEscolaClicked]);
+
+
+  useEffect(() => {
+    if (isIconEditarClicked && isButtonRemoverEscolaClicked) {
+      setIsButtonAddEscolaClicked(false)
+     }
+     
+  }, [isButtonRemoverEscolaClicked]);
+
   const location = useLocation();
   const { usuario } = location.state;
 
@@ -90,6 +104,7 @@ const HomeAdmin = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddEscolaClicked) && 
       <AddEscola />}
+      <link rel="stylesheet" href="" />
     </ContainerPage>
   )
 }
