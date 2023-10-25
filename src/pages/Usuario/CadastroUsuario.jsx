@@ -11,10 +11,6 @@ import TextoPossuiConta from '../../components/form/TextoPossuiConta'
 import { Link } from 'react-router-dom';
 import { validateNomeCompleto, validateCPF, validateEmail, validateSenha } from '../../validations/validaDadosCadastro';
 import DescricaoDadoIncorreto from '../../components/form/DadoIncorreto'
-import { useNavigate } from "react-router-dom";
-import API_URL from '../../config/config'
-import axios from "axios";
-
 
 const CadastroUsuario = () => {
     const [formData, setFormData] = useState({
@@ -30,40 +26,6 @@ const CadastroUsuario = () => {
         cpf: { temErros: false, mensagem: "" },
         senha: { temErros: false, mensagem: "" }
       });
-    
-      const enviarFormulario = async (e) => {
-        for (const campo in formData) {
-          if (formData[campo].trim() === '') {
-            setFormErros({erros: true, mensagem: "Preencha os campos necessários antes de cadastrar."})
-          } else {
-            setFormErros({erros: false, mensagem: ""})
-          }
-        }
-    
-        if (!formErros.erros) {
-          try {
-            const response = await axios.post(`${API_URL}/cadastro_usuario`, formData, {
-              withCredentials: true
-            });
-            console.log('Usuário cadastrado com sucesso:', response.data);
-            // window.location.reload();
-    
-            const usuario = {
-              nome: response.data.nome,
-              email: response.data.email
-            }
-    
-            // Redirecionamento para a página HomeAdmin com os dados do usuário cadastrado
-            navigate(`/admin`, { state: { usuario } });
-    
-          } catch (error) {
-            console.error('Erro ao cadastrar usuário:', error);
-            const mensagemDeErro = error.response.data.message;
-            setFormErros({erros: false, mensagem: ""})
-            setResponseErros({temErrosNaResposta: true, mensagem: mensagemDeErro})
-          }
-        }
-      };
     
       const handleInputChange = (e) => {
         const { name, value } = e.target;
