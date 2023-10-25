@@ -1,7 +1,7 @@
 import { React, useState } from 'react';
 import Title2 from '../../components/form/Title2';
 import Input from '../../components/form/Input';
-import Button from '../../components/form/Button';
+import Button from '../../components/Button';
 import { FormContainer, CenteredContent } from '../../components/form/FormContainer';
 import DisplayFlex from '../../utils/DisplayFlex';
 import DescricaoSobInput from '../../components/form/DescricaoSobInput';
