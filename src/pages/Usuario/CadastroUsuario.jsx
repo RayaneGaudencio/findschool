@@ -6,7 +6,7 @@ import { CenteredContent, FormContainer } from '../../components/form/FormContai
 import Title2 from '../../components/form/Title2'
 import DescricaoSobInput from '../../components/form/DescricaoSobInput'
 import Input from '../../components/form/Input'
-import Button from '../../components/form/Button';
+import Button from '../../components/Button';
 import TextoPossuiConta from '../../components/form/TextoPossuiConta'
 import { Link } from 'react-router-dom';
 import { validateNomeCompleto, validateCPF, validateEmail, validateSenha } from '../../validations/validaDadosCadastro';
