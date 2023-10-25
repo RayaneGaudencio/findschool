@@ -119,11 +119,13 @@ const CadastroUsuario = () => {
                 onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
             />
             {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
-              <Button type="submit">Cadastrar</Button>
-              <TextoPossuiConta>
-                  <p>Já possui conta?</p> 
-                  <Link to="/login_usuario">Login</Link>
-              </TextoPossuiConta>  
+            <CenteredContent>
+                <Button type="submit">Cadastrar</Button>
+                <TextoPossuiConta>
+                   <p>Já possui conta?</p> 
+                    <Link to="/login_usuario">Login</Link>
+                </TextoPossuiConta>
+            </CenteredContent>  
         </FormContainer>
     </DisplayFlex>
   )
