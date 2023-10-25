@@ -12,6 +12,8 @@ import axios from "axios";
 import { validateNomeCompleto, validateCPF, validateEmail, validateSenha } from '../../validations/validaDadosCadastro';
 import DescricaoDadoIncorreto from '../../components/form/DadoIncorreto';
 import { useNavigate } from "react-router-dom";
+import TextoPossuiConta from '../../components/form/TextoPossuiConta'
+import { Link } from 'react-router-dom';
 
 const CadastroAdmin = () => {
   const [formData, setFormData] = useState({
@@ -168,6 +170,10 @@ const CadastroAdmin = () => {
           <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>
         )}
           <Button type="submit">Cadastrar</Button>
+          <TextoPossuiConta>
+                    <p>Já possui conta?</p> 
+                    <Link to="/login_usuario">Login</Link>
+          </TextoPossuiConta>
         </CenteredContent>
       </FormContainer>
     </DisplayFlex>
