@@ -99,3 +99,18 @@ export const validateSenha = (senha) => {
     return true;
   };
   
+export const validateCNPJ = (cnpj) => {
+  // Remove traços e pontos do CNPJ
+  cnpj = cnpj.replace(/[^\d]+/g, '');
+
+  // Verifica se o CNPJ tem 14 dígitos
+  if (cnpj.length !== 14) {
+      return false;
+  }
+
+  // Verifica se todos os dígitos são iguais, o que torna o CNPJ inválido
+  if (/^(\d)\1+$/.test(cnpj)) {
+      return false;
+  }
+  return true;
+}
