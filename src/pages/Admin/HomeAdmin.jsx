@@ -47,8 +47,8 @@ const HomeAdmin = () => {
      
   }, [isButtonRemoverEscolaClicked]);
 
-  // const location = useLocation();
-  // const { usuario } = location.state;
+  const location = useLocation();
+  const { usuario } = location.state;
 
   return (
     <ContainerPage>
@@ -76,7 +76,7 @@ const HomeAdmin = () => {
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
-            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
+            <NomePerfil>{usuario.nome}</NomePerfil>
           </div>
           <div>
             <ButtonOpcoes
@@ -92,7 +92,7 @@ const HomeAdmin = () => {
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
-            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
+            <NomePerfil>{usuario.nome}</NomePerfil>
           </div>
           <div>
           <ButtonOpcoes
