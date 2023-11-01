@@ -13,7 +13,7 @@ import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes
 import { useLocation } from 'react-router-dom';
 import AddEscola from './AddEscola'
 import EditarPerfil from './EditarPerfil'
-
+import RemoverEscola from './RemoverEscola'
 
 
 const HomeAdmin = () => {
@@ -47,8 +47,8 @@ const HomeAdmin = () => {
      
   }, [isButtonRemoverEscolaClicked]);
 
-  const location = useLocation();
-  const { usuario } = location.state;
+  // const location = useLocation();
+  // const { usuario } = location.state;
 
   return (
     <ContainerPage>
@@ -76,7 +76,7 @@ const HomeAdmin = () => {
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
-            <NomePerfil>{usuario.nome}</NomePerfil>
+            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
           </div>
           <div>
             <ButtonOpcoes
@@ -92,7 +92,7 @@ const HomeAdmin = () => {
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
-            <NomePerfil>{usuario.nome}</NomePerfil>
+            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
           </div>
           <div>
           <ButtonOpcoes
@@ -110,8 +110,10 @@ const HomeAdmin = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddEscolaClicked) && 
       <AddEscola />}
+      {(isIconEditarClicked && isButtonRemoverEscolaClicked) && 
+      <RemoverEscola />}
       {(isIconPerfilClicked && isButtonEditarPerfilClicked) && 
-      <EditarPerfil />}  
+      <EditarPerfil />}
 
       <link rel="stylesheet" href="" />
     </ContainerPage>
