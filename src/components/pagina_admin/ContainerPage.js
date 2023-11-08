@@ -13,6 +13,8 @@ const ContainerPage = styled.main`
     & > div:nth-child(2) {
         background-color: rgb(21, 0, 150); 
     }
+
+    ${(props) => props.qtdColumns && 'grid-template-columns: 0.3fr 7fr;'}
 `
 
 export default ContainerPage
