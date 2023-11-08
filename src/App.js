@@ -5,6 +5,8 @@ import HomeAdmin from "./pages/Admin/HomeAdmin";
 import LoginAdmin from "./pages/Admin/LoginAdmin";
 import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 import LoginUsuario from "./pages/Usuario/LoginUsuario";
+import HomeInstituicao from "./pages/instituicao/HomeInstituicao";
+import AddSerie from "./pages/instituicao/AddSerie";
 
 
 
@@ -17,6 +19,8 @@ function App() {
         <Route path="/login_admin" Component={LoginAdmin}/>
         <Route path="/cadastro_usuario" Component={CadastroUsuario}/>
         <Route path="/login_usuario" Component={LoginUsuario}/>
+        <Route path="/parceiro" Component={HomeInstituicao}/>
+        {/* <Route path="/adicionar_serie" Component={AddSerie}/> */}
       </Routes>
     </Router>
   );
