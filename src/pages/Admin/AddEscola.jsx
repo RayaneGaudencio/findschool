@@ -45,6 +45,7 @@ import { validateCNPJ, validateEmail, validateSenha } from "../../validations/va
 import DescricaoDadoIncorreto from "../../components/form/DadoIncorreto";
 import axios from "axios";
 import API_URL from "../../config/config";
+import DescricaoMensagemSucesso from "../../components/form/MensagemSucesso";
 
 const AddEscola = () => {
 
@@ -65,7 +66,7 @@ const AddEscola = () => {
     const [formErros, setFormErros] = useState({ erros: false, mensagem: ""})
 
     
-  const [responseErros, setResponseErros] = useState({ temErrosNaResposta: false, mensagem: ""})
+    const [responseErros, setResponseErros] = useState({ temErrosNaResposta: false, sucessoCadastro: false, mensagem: ""})
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -124,9 +125,15 @@ const AddEscola = () => {
               const response = await axios.post(`${API_URL}/escolas`, formData, {
                 withCredentials: true
               });
-              console.log('Escola cadastrada com sucesso:', response.data);
-  
-            
+              console.log('Escola cadastrada com sucesso:', response.message);
+              setResponseErros({temErrosNaResposta: false, sucessoCadastro: true, mensagem: response.data.message})   
+              setFormData({
+                nome: "",
+                email: "",
+                cnpj: "",
+                senha: ""
+              })
+
             } catch (error) {
               console.error('Erro ao cadastrar escola:', error);
               const mensagemDeErro = error.response.data.errors[0];
@@ -153,6 +160,7 @@ const AddEscola = () => {
             name="nome"
             onChange={handleInputChange}
             onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
+            value={formData.nome}
             />
             {erros.nome.temErros && <DescricaoDadoIncorreto>{erros.nome.mensagem}</DescricaoDadoIncorreto>}
             <DescricaoSobInput>Email</DescricaoSobInput>
@@ -162,6 +170,7 @@ const AddEscola = () => {
             name="email"
             onChange={handleInputChange}
             onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
+            value={formData.email}
             />
             {erros.email.temErros && <DescricaoDadoIncorreto>{erros.email.mensagem}</DescricaoDadoIncorreto>}
             <DescricaoSobInput>CNPJ</DescricaoSobInput>
@@ -171,6 +180,7 @@ const AddEscola = () => {
             name="cnpj"
             onChange={handleInputChange}
             onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
+            value={formData.cnpj}
             />
             {erros.cnpj.temErros && <DescricaoDadoIncorreto>{erros.cnpj.mensagem}</DescricaoDadoIncorreto>}
             <DescricaoSobInput>Senha</DescricaoSobInput>
@@ -180,11 +190,13 @@ const AddEscola = () => {
             name="senha"
             onChange={handleInputChange}
             onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
+            value={formData.senha}
             />
             {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
             {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
             {(responseErros.temErrosNaResposta && !formErros.erros) && 
             <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>}
+            {responseErros.sucessoCadastro && <DescricaoMensagemSucesso>{responseErros.mensagem}</DescricaoMensagemSucesso>}
         <div>
             <Button type="submit">Adicionar</Button>
         </div>
