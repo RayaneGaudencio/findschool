@@ -3,7 +3,7 @@ import styled from "styled-components";
 const FormAddEscola = styled.div`
     background-color: #D9D9D9;
     display: grid; 
-    grid-template-columns: 3fr 1fr; 
+    grid-template-columns: 3fr; 
     grid-template-rows: 1fr 5fr; 
     margin: 2em;
     border-radius: 8px;
@@ -14,7 +14,6 @@ const FormAddEscola = styled.div`
     } 
 
     & > form:nth-child(2) {
-        grid-column: 1;
         grid-row: 2;
         display: flex;
         flex-direction: column;
@@ -23,10 +22,15 @@ const FormAddEscola = styled.div`
         padding: 2em;
 
         color: #030200;
+
+        div:last-child {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+        }
     }
 
     & > div:nth-child(3) {
-        grid-column: 2;
         grid-row: 2;
         display: flex;
         flex-direction: column;
@@ -155,7 +159,7 @@ const AddEscola = () => {
         }}>
             <DescricaoSobInput>Nome da Instituição</DescricaoSobInput>
             <Input 
-            style={{width: '70%'}}
+            style={{width: '50%'}}
             type="text"
             name="nome"
             onChange={handleInputChange}
@@ -165,7 +169,7 @@ const AddEscola = () => {
             {erros.nome.temErros && <DescricaoDadoIncorreto>{erros.nome.mensagem}</DescricaoDadoIncorreto>}
             <DescricaoSobInput>Email</DescricaoSobInput>
             <Input 
-            style={{width: '70%'}}
+            style={{width: '50%'}}
             type="email"
             name="email"
             onChange={handleInputChange}
