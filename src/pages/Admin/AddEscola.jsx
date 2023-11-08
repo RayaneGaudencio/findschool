@@ -7,6 +7,7 @@ const FormAddEscola = styled.div`
     grid-template-rows: 1fr 5fr; 
     margin: 2em;
     border-radius: 8px;
+    overflow-x: auto;
 
     & > div:nth-child(1) {
         grid-column: 1 / span 2;

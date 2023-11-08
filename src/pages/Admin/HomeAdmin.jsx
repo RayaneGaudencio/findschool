@@ -12,12 +12,14 @@ import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
 import AddEscola from './AddEscola'
+import EditarPerfil from './EditarPerfil'
 
 
 
 const HomeAdmin = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
+  const [isButtonEditarPerfilClicked, setIsButtonEditarPerfilClicked] = useState(false);
   const [isButtonAddEscolaClicked, setIsButtonAddEscolaClicked] = useState(false)
   const [isButtonRemoverEscolaClicked, setIsButtonRemoverEscolaClicked] = useState(false)
 
@@ -57,14 +59,14 @@ const HomeAdmin = () => {
                 isClicked={isIconPerfilClicked} 
                 onClick={() => {
                   setIconPerfilClicked(true);
-                  setIconEditarClicked(false);}}
+                  setIconEditarClicked(false)}}
                 style={{width: '1.6em'}}/>
               <StyledImageIcon 
                 src={IconEditarSVG} 
                 isClicked={isIconEditarClicked} 
                 onClick={() => {
-                  setIconEditarClicked(true); 
-                  setIconPerfilClicked(false);}} />
+                  setIconEditarClicked(true);
+                  setIconPerfilClicked(false)}} />
             </div>
             <div>
              <StyledImageIcon src={IconLogoutSVG}/>        
@@ -77,7 +79,11 @@ const HomeAdmin = () => {
             <NomePerfil>{usuario.nome}</NomePerfil>
           </div>
           <div>
-            <ButtonOpcoes>Editar Perfil</ButtonOpcoes>
+            <ButtonOpcoes
+            isClicked={isButtonEditarPerfilClicked}
+            onClick={() => {
+              setIsButtonEditarPerfilClicked(true)}}
+            >Editar Perfil</ButtonOpcoes>
             <ButtonOpcoes>Pedidos</ButtonOpcoes>
             <ButtonOpcoes>Relatorios</ButtonOpcoes>
             <ButtonOpcoes>Calendário</ButtonOpcoes>
@@ -104,6 +110,9 @@ const HomeAdmin = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddEscolaClicked) && 
       <AddEscola />}
+      {(isIconPerfilClicked && isButtonEditarPerfilClicked) && 
+      <EditarPerfil />}  
+
       <link rel="stylesheet" href="" />
     </ContainerPage>
   )
