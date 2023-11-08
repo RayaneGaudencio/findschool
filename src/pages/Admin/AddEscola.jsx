@@ -43,6 +43,8 @@ import Button from '../../components/Button'
 import LinhaAbaixoTitle from "../../components/pagina_admin/ThirdColumn/LinhaAbaixoTitle";
 import { validateCNPJ, validateEmail, validateSenha } from "../../validations/validaDadosCadastro";
 import DescricaoDadoIncorreto from "../../components/form/DadoIncorreto";
+import axios from "axios";
+import API_URL from "../../config/config";
 
 const AddEscola = () => {
 
@@ -59,6 +61,11 @@ const AddEscola = () => {
         cnpj: { temErros: false, mensagem: "" },
         senha: { temErros: false, mensagem: "" }
       });
+
+    const [formErros, setFormErros] = useState({ erros: false, mensagem: ""})
+
+    
+  const [responseErros, setResponseErros] = useState({ temErrosNaResposta: false, mensagem: ""})
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -100,7 +107,33 @@ const AddEscola = () => {
               setErros({...erros, senha:({ temErros: false})})
             }
           }
-      }
+
+        }
+
+        const enviarFormulario = async (e) => {
+          for (const campo in formData) {
+            if (formData[campo].trim() === '') {
+              setFormErros({erros: true, mensagem: "Preencha os campos necessários antes de cadastrar."})
+            } else {
+              setFormErros({erros: false, mensagem: ""})
+            }
+          }
+      
+          if (!formErros.erros) {
+            try {
+              const response = await axios.post(`${API_URL}/escolas`, formData, {
+                withCredentials: true
+              });
+              console.log('Escola cadastrada com sucesso:', response.data);
+  
+            
+            } catch (error) {
+              console.error('Erro ao cadastrar escola:', error);
+              const mensagemDeErro = error.response.data.errors[0];
+              setResponseErros({temErrosNaResposta: true, mensagem: mensagemDeErro})
+            }
+          }
+        };     
 
   return (
     <FormAddEscola>
@@ -108,7 +141,11 @@ const AddEscola = () => {
             <TitleTopo>Adicionar Escola</TitleTopo>
             <LinhaAbaixoTitle />
         </div>
-        <form>
+        <form
+          onSubmit={(event) => {
+          event.preventDefault();
+          enviarFormulario(formData);
+        }}>
             <DescricaoSobInput>Nome da Instituição</DescricaoSobInput>
             <Input 
             style={{width: '70%'}}
@@ -145,10 +182,13 @@ const AddEscola = () => {
             onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
             />
             {erros.senha.temErros && <DescricaoDadoIncorreto>{erros.senha.mensagem}</DescricaoDadoIncorreto>}
-        </form>
+            {formErros.erros && <DescricaoDadoIncorreto>{formErros.mensagem}</DescricaoDadoIncorreto>}
+            {(responseErros.temErrosNaResposta && !formErros.erros) && 
+            <DescricaoDadoIncorreto>{responseErros.mensagem}</DescricaoDadoIncorreto>}
         <div>
-            <Button>Adicionar</Button>
+            <Button type="submit">Adicionar</Button>
         </div>
+        </form>
    </FormAddEscola>
   )
 }
