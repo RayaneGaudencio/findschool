@@ -13,7 +13,7 @@ import ButtonOpcoes from '../../components/pagina_admin/SecondColum/ButtonOpcoes
 import { useLocation } from 'react-router-dom';
 import AddEscola from './AddEscola'
 import EditarPerfil from './EditarPerfil'
-
+import RemoverEscola from './RemoverEscola'
 
 
 const HomeAdmin = () => {
@@ -110,8 +110,10 @@ const HomeAdmin = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddEscolaClicked) && 
       <AddEscola />}
+      {(isIconEditarClicked && isButtonRemoverEscolaClicked) && 
+      <RemoverEscola />}
       {(isIconPerfilClicked && isButtonEditarPerfilClicked) && 
-      <EditarPerfil />}  
+      <EditarPerfil />}
 
       <link rel="stylesheet" href="" />
     </ContainerPage>
