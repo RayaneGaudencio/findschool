@@ -158,11 +158,6 @@ const AddEscola = () => {
           event.preventDefault();
           enviarFormulario(formData);
         }}>
-        <form
-          onSubmit={(event) => {
-          event.preventDefault();
-          enviarFormulario(formData);
-        }}>
             <DescricaoSobInput>Nome da Instituição</DescricaoSobInput>
             <Input 
             style={{width: '50%'}}
@@ -209,9 +204,7 @@ const AddEscola = () => {
             {responseErros.sucessoCadastro && <DescricaoMensagemSucesso>{responseErros.mensagem}</DescricaoMensagemSucesso>}
         <div>
             <Button type="submit">Adicionar</Button>
-            <Button type="submit">Adicionar</Button>
         </div>
-        </form>
         </form>
    </FormAddEscola>
   )
