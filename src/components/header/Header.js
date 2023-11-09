@@ -4,8 +4,16 @@ import LogoSVG from '../../img/logo-e-nome.svg'
 import { Link } from "react-router-dom"
 import IconMenu from '../../img/icon-menu.svg'
 import LogoPreta from '../../img/logo-preta.svg'
+import IconHouse from '../../img/icon-house.svg'
+import IconPerfil from '../../img/icon-perfil.svg'
+import IconInstituicao from '../../img/icon-instituicao.svg'
+import IconExtra from '../../img/icon-planeta.svg'
+import IconParceria from '../../img/icon-parceria.svg'
+import HomeUsuario from "../../pages/Usuario/HomeUsuario"
+import CadastroAdmin from '../../pages/Admin/CadastroAdmin'
 
-const BarraHeader = styled.div`
+
+const BarraHeader = styled.header`
     background-color: #4234CF;
     height: 58px;
     width: 100%;
@@ -72,17 +80,23 @@ const ImagemIconPerfil = styled.img`
 
 const BarraLateral = styled.div`
     width: 260px;
-    height: 100vh;
+    height: 100vmax;
     background-color: #4234CFF2;
     position: absolute;
     top: 0;
     right: 0;
     display: none;
+    z-index: 2;
 
     &.show{
         display: flex;
         flex-direction: column;
     }
+`
+
+const ItemListBarraLateral = styled.li`
+    color: white;
+    width: 100%;
 `
 
 const ListBarraLateral = styled.ul`
@@ -91,8 +105,24 @@ const ListBarraLateral = styled.ul`
     align-items: center;
     gap: 15px;
     list-style: none;
-    margin-right: 10px;
+    margin-top: 15px;
+    /* margin-right: 10px; */
+    
     color: white;
+`
+
+const IconBarraLateral = styled.img`
+    cursor: pointer;
+    margin-right: 30px;
+`
+
+const TextoBarraLateral = styled.p`
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    width: 100%;
 `
 
 const ShowBarraLateral = () => {
@@ -126,32 +156,53 @@ const Header = () => {
             </ListHeader>
             <BarraLateral id="barraLateral">
                 <LogoMenu src={LogoPreta} onClick={HideBarraLateral}></LogoMenu>
+
                 <ListBarraLateral>
-                    <ItemList>
-                        <Link>
-                            <TextoLink>Home</TextoLink>
+                    <ItemListBarraLateral>
+                        <Link to={'/'}>
+                            <TextoBarraLateral>
+                                <IconBarraLateral src={IconHouse}></IconBarraLateral>
+                                <Texto>Home</Texto>
+                            </TextoBarraLateral>
                         </Link>
-                    </ItemList>
-                    <ItemList>
-                        <Link>
-                            <TextoLink>Perfil</TextoLink>
+                    </ItemListBarraLateral>
+
+                    <ItemListBarraLateral>
+                        <Link to={'/perfil_usuario'}>
+                            <TextoBarraLateral>
+                                <IconBarraLateral src={IconPerfil}></IconBarraLateral>
+                                <Texto>perfil</Texto>
+                            </TextoBarraLateral>
                         </Link>
-                    </ItemList>
-                    <ItemList>
+                    </ItemListBarraLateral>
+
+                    <ItemListBarraLateral>
                         <Link>
-                            <TextoLink>Ensino</TextoLink>
+                            <TextoBarraLateral>
+                                <IconBarraLateral src={IconInstituicao}></IconBarraLateral>
+                                <Texto>Ensino</Texto>
+                            </TextoBarraLateral>
                         </Link>
-                    </ItemList>
-                    <ItemList>
+                    </ItemListBarraLateral>
+
+                    <ItemListBarraLateral>
                         <Link>
-                            <TextoLink>Extracurriculares</TextoLink>
+                            <TextoBarraLateral>
+                                <IconBarraLateral src={IconExtra}></IconBarraLateral>
+                                <Texto>Extracurriculares</Texto>
+                            </TextoBarraLateral>
                         </Link>
-                    </ItemList>
-                    <ItemList>
+                    </ItemListBarraLateral>
+
+                    <ItemListBarraLateral>
                         <Link>
-                            <TextoLink>Seja um parceiro</TextoLink>
+                            <TextoBarraLateral>
+                                <IconBarraLateral src={IconParceria}></IconBarraLateral>
+                                <Texto>Seja um parceiro</Texto>
+                            </TextoBarraLateral>
                         </Link>
-                    </ItemList>
+                    </ItemListBarraLateral>
+                    
                 </ListBarraLateral>
             </BarraLateral>
         </BarraHeader>
