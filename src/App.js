@@ -19,8 +19,7 @@ function App() {
         <Route path="/login_admin" Component={LoginAdmin}/>
         <Route path="/cadastro_usuario" Component={CadastroUsuario}/>
         <Route path="/login_usuario" Component={LoginUsuario}/>
-        <Route path="/parceiro" Component={HomeInstituicao}/>
-        {/* <Route path="/adicionar_serie" Component={AddSerie}/> */}
+        <Route path="/instituicao" Component={HomeInstituicao}/>
       </Routes>
     </Router>
   );

@@ -115,7 +115,6 @@ const HomeInstituicao = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddSerieClicked) && 
       <AddSerie />}
-    
       {isIconLogoutClicked && <LogoutInstituicao />}
     </ContainerPage>
   )
