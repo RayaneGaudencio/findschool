@@ -77,7 +77,7 @@ const LoginInstituicao = () => {
             }
     
             // Redirecionamento para a página HomeInstituicao com os dados da instituicao cadastrada
-            navigate(`/parceiro`, { state: { escola } });
+            navigate(`/instituicao`, { state: { escola } });
     
           } catch (error) {
             console.error('Erro ao fazer login:', error);
