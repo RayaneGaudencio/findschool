@@ -1,6 +1,6 @@
 export const validateGrau = (grau) => {
     // Verifica se o grau está dentro das opções permitidas
-    const opcoesPermitidas = ["infantil", "fundamental", "médio"];
+    const opcoesPermitidas = ["Infantil", "Fundamental I", "Fundamental II" , "Ensino Médio"];
     return opcoesPermitidas.includes(grau.toLowerCase());
 };
   

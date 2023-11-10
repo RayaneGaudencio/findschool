@@ -19,8 +19,8 @@ function App() {
         <Route path="/" Component={HomeUsuario} />
         <Route path="/cadastro_usuario" Component={CadastroUsuario}/>
         <Route path="/login_usuario" Component={LoginUsuario}/>
+        <Route path="/instituicao" Component={HomeInstituicao}/>
         <Route path="/login_instituicao" Component={LoginInstituicao}/>
-        <Route path="/parceiro" Component={HomeInstituicao}/>
       </Routes>
     </Router>
   );

@@ -12,21 +12,42 @@ import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_instituicao/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
+import LogoutInstituicao from './LogoutInstituicao.jsx'
 
 
 const HomeInstituicao = () => {
   const [isIconPerfilClicked, setIconPerfilClicked] = useState(true);
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
+  const [isIconLogoutClicked, setIconLogoutClicked] = useState(false);
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
+  
+  useEffect(() => {
+    if (isIconPerfilClicked) {
+      setIconEditarClicked(false);
+      setIconLogoutClicked(false)
+    } 
+  }, [isIconPerfilClicked]);
 
+  useEffect(() => {
+    if (isIconEditarClicked) {
+      setIconPerfilClicked(false);
+      setIconLogoutClicked(false)
+    } 
+  }, [isIconEditarClicked]);
+  
+  useEffect(() => {
+    if (isIconLogoutClicked) {
+      setIconEditarClicked(false)
+      setIconPerfilClicked(false)
+    } 
+  }, [isIconLogoutClicked]);
 
   useEffect(() => {
    if (isIconEditarClicked && isButtonAddSerieClicked) {
     setIsButtonEditarInformacoesClicked(false)
    }
   }, [isButtonAddSerieClicked]);
-
 
   useEffect(() => {
     if (isIconEditarClicked && isButtonEditarInformacoesClicked) {
@@ -35,47 +56,63 @@ const HomeInstituicao = () => {
      
   }, [isButtonEditarInformacoesClicked]);
 
+<<<<<<< HEAD
   const location = useLocation();
   const { escola } = location.state;
   
+=======
+
+>>>>>>> tela-logout-instituicao
 
   return (
-    <ContainerPage>
+    <ContainerPage 
+    qtdColumns={isIconLogoutClicked}>
         <FirstColumn>
             <div>
               <StyledImageIcon 
                 src={IconPerfilSVG} 
                 isClicked={isIconPerfilClicked} 
                 onClick={() => {
-                  setIconPerfilClicked(true);
-                  setIconEditarClicked(false);}}
+                  setIconPerfilClicked(true);}}
                 style={{width: '1.6em'}}/>
               <StyledImageIcon 
                 src={IconEditarSVG} 
                 isClicked={isIconEditarClicked} 
                 onClick={() => {
-                  setIconEditarClicked(true); 
-                  setIconPerfilClicked(false);}} />
+                  setIconEditarClicked(true); }}/>
             </div>
             <div>
-             <StyledImageIcon src={IconLogoutSVG}/>        
+            <StyledImageIcon 
+                src={IconLogoutSVG} 
+                isClicked={isIconLogoutClicked} 
+                onClick={() => {
+                  setIconLogoutClicked(true)
+                }}
+                />            
             </div>
         </FirstColumn>
-        {isIconPerfilClicked ? 
+        {(isIconPerfilClicked && !isIconLogoutClicked) &&
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
+<<<<<<< HEAD
             <NomePerfil>{escola.nome}</NomePerfil>
+=======
+>>>>>>> tela-logout-instituicao
           </div>
           <div>
             <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
             <ButtonOpcoes>Histórico</ButtonOpcoes>
           </div>
-        </SecondColumn> : 
+        </SecondColumn>}
+        {(isIconEditarClicked && !isIconLogoutClicked) &&     
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
+<<<<<<< HEAD
             <NomePerfil>{escola.nome}</NomePerfil>
+=======
+>>>>>>> tela-logout-instituicao
           </div>
           <div>
           <ButtonOpcoes
@@ -92,7 +129,7 @@ const HomeInstituicao = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddSerieClicked) && 
       <AddSerie />}
-      <link rel="stylesheet" href="" />
+      {isIconLogoutClicked && <LogoutInstituicao />}
     </ContainerPage>
   )
 }
