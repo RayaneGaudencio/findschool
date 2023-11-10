@@ -13,6 +13,7 @@ import ButtonOpcoes from '../../components/pagina_instituicao/SecondColum/Button
 import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
+import EditarInfos from './EditarInfos.jsx'
 
 
 const HomeInstituicao = () => {
@@ -120,6 +121,8 @@ const HomeInstituicao = () => {
       {(isIconEditarClicked && isButtonAddSerieClicked) && 
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
+      {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
+      <EditarInfos />}
     </ContainerPage>
   )
 }
