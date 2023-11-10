@@ -56,13 +56,9 @@ const HomeInstituicao = () => {
      
   }, [isButtonEditarInformacoesClicked]);
 
-<<<<<<< HEAD
   const location = useLocation();
   const { escola } = location.state;
   
-=======
-
->>>>>>> tela-logout-instituicao
 
   return (
     <ContainerPage 
@@ -95,10 +91,7 @@ const HomeInstituicao = () => {
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
-<<<<<<< HEAD
             <NomePerfil>{escola.nome}</NomePerfil>
-=======
->>>>>>> tela-logout-instituicao
           </div>
           <div>
             <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
@@ -109,10 +102,7 @@ const HomeInstituicao = () => {
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
-<<<<<<< HEAD
             <NomePerfil>{escola.nome}</NomePerfil>
-=======
->>>>>>> tela-logout-instituicao
           </div>
           <div>
           <ButtonOpcoes
