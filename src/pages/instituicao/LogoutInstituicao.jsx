@@ -1,60 +1,74 @@
-import styled from "styled-components";
-import TitleTopo from "../../components/pagina_instituicao/ThirdColumn/TitleTopo";
-import LinhaAbaixoTitle from "../../components/pagina_instituicao/ThirdColumn/LinhaAbaixoTitle";
-import Button from "../../components/Button";
-
 const FormLogout = styled.div`
-    background-color: #D9D9D9;
-    display: grid; 
-    grid-template-columns: 3fr 1fr; 
-    grid-template-rows: 1fr 5fr; 
-    margin: 2em;
-    border-radius: 8px;
+  background-color: #d9d9d9;
+  display: grid;
+  grid-template-columns: 17fr 2fr;
+  grid-template-rows: 1fr 5fr;
+  margin: 2em;
+  border-radius: 8px;
 
-    & > div:nth-child(1) {
-        grid-column: 1 / span 2;
-        grid-row: 1;
-    } 
+  & > div:nth-child(1) {
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
 
-    & > form:nth-child(2) {
-        grid-column: 1;
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 1em;
-        padding: 2em;
+  & > form:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    padding: 2em;
 
-        color: #030200;
+    color: #030200;
+
+    h1 {
+      color: #4231cf;
     }
 
-    & > div:nth-child(3) {
-        grid-column: 2;
-        grid-row: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding: 1em 2em;
+    h2 {
+      color: #150096;
     }
 
-`
+    .abandonar {
+      background-color: #95FA15;
+      padding: 0.2em;
+      border-radius: 7px;
+    }
+
+    /* Mova o botão diretamente abaixo do h2 */
+    ${Button} {
+      margin-top: 1em; /* Adiciona margem superior ao botão abaixo do h2 */
+    }
+  }
+
+  & > div:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1em 2em;
+  }
+`;
+
 const LogoutInstituicao = () => {
+  return (
+    <FormLogout>
+      <div>
+        <TitleTopo>Logout</TitleTopo>
+        <LinhaAbaixoTitle />
+      </div>
+      <form>
+        <h1>Olá, !</h1>
+        <h2>Você deseja mesmo <span className="abandonar">abandonar</span> a plataforma?</h2>
+        <Button>
+          <a href="">Sim</a>
+        </Button>
+      </form>
+     </FormLogout>
+  );
+};
 
-    return (
-        <FormLogout>
-        <div>
-            <TitleTopo>Logout</TitleTopo>
-            <LinhaAbaixoTitle />
-        </div>
-        <form>
-          <h3 color="#150096"> Olá !</h3>  
-          <h4>Você deseja mesmo abandonar a plataforma?</h4>
-        </form>
-        <div>
-            <Button><a href="">Sim</a></Button>
-        </div>
-    </FormLogout>
-    )
-}
+export default LogoutInstituicao;
 
-export default LogoutInstituicao
