@@ -12,6 +12,7 @@ import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_instituicao/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
+import EditarInfos from './EditarInfos.jsx'
 
 
 const HomeInstituicao = () => {
@@ -91,6 +92,8 @@ const HomeInstituicao = () => {
       {(isIconEditarClicked && isButtonAddSerieClicked) && 
       <AddSerie />}
       <link rel="stylesheet" href="" />
+      {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
+      <EditarInfos />}
     </ContainerPage>
   )
 }

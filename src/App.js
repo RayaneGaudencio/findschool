@@ -7,6 +7,7 @@ import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 import LoginUsuario from "./pages/Usuario/LoginUsuario";
 import HomeInstituicao from "./pages/instituicao/HomeInstituicao";
 import AddSerie from "./pages/instituicao/AddSerie";
+import EditarInfos from "./pages/instituicao/EditarInfos";
 
 
 
