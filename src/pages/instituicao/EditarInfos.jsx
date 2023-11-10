@@ -115,7 +115,7 @@ const EditarInfos = () => {
                 <LinhaAbaixoTitle />
                 <text style={{padding: '2em' }} >Endereço de e-mail</text>
                 <br/>
-                <text style={{padding: '2em' }} >colegiosantamaria@finderschool.com.br</text>
+                <text style={{padding: '2em' }} >email@finderschool.com.br</text>
             </div>
             <form>
                 <DescricaoSobInput>Nova senha</DescricaoSobInput>
