@@ -7,10 +7,7 @@ import HomeUsuario from "./pages/Usuario/HomeUsuario";
 import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 import LoginUsuario from "./pages/Usuario/LoginUsuario";
 import LoginInstituicao from "./pages/Instituicao/LoginInstituicao";
-import HomeInstituicao from "./pages/instituicao/HomeInstituicao";
-import AddSerie from "./pages/instituicao/AddSerie";
-
-
+import HomeInstituicao from "./pages/Instituicao/HomeInstituicao";
 
 function App() {
   return (
@@ -24,7 +21,6 @@ function App() {
         <Route path="/login_usuario" Component={LoginUsuario}/>
         <Route path="/login_instituicao" Component={LoginInstituicao}/>
         <Route path="/parceiro" Component={HomeInstituicao}/>
-        {/* <Route path="/adicionar_serie" Component={AddSerie}/> */}
       </Routes>
     </Router>
   );

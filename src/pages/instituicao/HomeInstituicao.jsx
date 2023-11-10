@@ -35,6 +35,8 @@ const HomeInstituicao = () => {
      
   }, [isButtonEditarInformacoesClicked]);
 
+  const location = useLocation();
+  const { escola } = location.state;
   
 
   return (
@@ -63,7 +65,7 @@ const HomeInstituicao = () => {
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
-            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
+            <NomePerfil>{escola.nome}</NomePerfil>
           </div>
           <div>
             <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
@@ -73,7 +75,7 @@ const HomeInstituicao = () => {
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
-            {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
+            <NomePerfil>{escola.nome}</NomePerfil>
           </div>
           <div>
           <ButtonOpcoes
