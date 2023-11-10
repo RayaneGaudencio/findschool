@@ -122,7 +122,7 @@ const HomeInstituicao = () => {
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
-      <EditarInfos />}
+      <EditarInfos escola={escola}/>}
     </ContainerPage>
   )
 }

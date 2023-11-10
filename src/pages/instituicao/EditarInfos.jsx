@@ -47,7 +47,7 @@ import DescricaoDadoIncorreto from "../../components/form/DadoIncorreto";
 
 
 
-const EditarInfos = () => {
+const EditarInfos = ({ escola }) => {
 
     const [ formData, setFormData ] = useState({
         serie: "",
@@ -114,9 +114,9 @@ const EditarInfos = () => {
             <div>
                 <TitleTopo>Editar Informações</TitleTopo>
                 <LinhaAbaixoTitle />
-                <text style={{padding: '2em' }} >Endereço de e-mail</text>
+                <span style={{margin: '2em' }} >Endereço de e-mail:</span>
                 <br/>
-                <text style={{padding: '2em' }} >email@finderschool.com.br</text>
+                <span style={{padding: '2em' }}>{escola.email}</span>
             </div>
             <form>
                 <DescricaoSobInput>Nova senha</DescricaoSobInput>
