@@ -79,6 +79,8 @@ const AddEscola = () => {
           ...formData,
           [name]: value
         });
+
+        setResponseErros({...responseErros, sucessoCadastro: false, mensagem: ""})
       };
 
       const verificaPreenchimentoCampos = (name) => {
@@ -130,8 +132,9 @@ const AddEscola = () => {
               const response = await axios.post(`${API_URL}/escolas`, formData, {
                 withCredentials: true
               });
+              console.log(response)
               console.log('Escola cadastrada com sucesso:', response.message);
-              setResponseErros({temErrosNaResposta: false, sucessoCadastro: true, mensagem: response.data.message})   
+              setResponseErros({temErrosNaResposta: false, sucessoCadastro: true, mensagem: "Escola Cadastrada com Sucesso!"})   
               setFormData({
                 nome: "",
                 email: "",
