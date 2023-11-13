@@ -5,7 +5,6 @@ const ContainerPage = styled.main`
     display: grid;
     grid-template-columns: 0.3fr 2fr 7fr;
     height: 100vh; 
-
     & > div:nth-child(1) {
         background-color: #4234CF; 
     }

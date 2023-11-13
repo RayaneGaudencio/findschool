@@ -12,6 +12,7 @@ import NomePerfil from '../../components/pagina_admin/NomePerfil'
 import ButtonOpcoes from '../../components/pagina_instituicao/SecondColum/ButtonOpcoes'
 import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
+import MeuPerfil from './MeuPerfil.jsx'
 
 
 const HomeInstituicao = () => {
@@ -19,6 +20,8 @@ const HomeInstituicao = () => {
   const [isIconEditarClicked, setIconEditarClicked] = useState(false);
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
+  const [isButtonMeuPerfilClicked, setIsButtonHistoricoClicked] = useState(false)
+  const [isButtonHistoricoClicked, setIsButtonMeuPerfilClicked] = useState(false)
 
 
   useEffect(() => {
@@ -34,6 +37,20 @@ const HomeInstituicao = () => {
      }
      
   }, [isButtonEditarInformacoesClicked]);
+
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonMeuPerfilClicked) {
+      setIsButtonHistoricoClicked(false)
+     }
+     
+  }, [isButtonMeuPerfilClicked]);
+
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonHistoricoClicked) {
+      setIsButtonMeuPerfilClicked(false)
+     }
+     
+  }, [isButtonHistoricoClicked]);
 
   
 
@@ -66,8 +83,16 @@ const HomeInstituicao = () => {
             {/* <NomePerfil>{usuario.nome}</NomePerfil> */}
           </div>
           <div>
-            <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
-            <ButtonOpcoes>Histórico</ButtonOpcoes>
+            <ButtonOpcoes
+             isClicked={isButtonMeuPerfilClicked}
+             onClick={() => {
+               setIsButtonMeuPerfilClicked(true)}}
+            >Meu Perfil</ButtonOpcoes>
+            <ButtonOpcoes
+             isClicked={isButtonHitoricoClicked}
+             onClick={() => {
+               setIsButtonhistoricoClicked(true)}}
+            >Histórico</ButtonOpcoes>
           </div>
         </SecondColumn> : 
         <SecondColumn>
@@ -90,6 +115,9 @@ const HomeInstituicao = () => {
         </SecondColumn>}
       {(isIconEditarClicked && isButtonAddSerieClicked) && 
       <AddSerie />}
+      <link rel="stylesheet" href="" />
+      {(isIconPerfilClicked && isButtonMeuPerfilClicked) && 
+      <MeuPerfil />}
       <link rel="stylesheet" href="" />
     </ContainerPage>
   )
