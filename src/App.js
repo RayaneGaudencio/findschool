@@ -8,6 +8,8 @@ import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 import LoginUsuario from "./pages/Usuario/LoginUsuario";
 import HomeInstituicao from "./pages/Instituicao/HomeInstituicao";
 import LoginInstituicao from "./pages/Instituicao/LoginInstituicao";
+import PerfilUsuario from "./pages/Usuario/PerfilUsuario";
+import Pesquisar from "./pages/Usuario/Pesquisar";
 
 
 
@@ -23,6 +25,8 @@ function App() {
         <Route path="/login_usuario" Component={LoginUsuario}/>
         <Route path="/instituicao" Component={HomeInstituicao}/>
         <Route path="/login_instituicao" Component={LoginInstituicao}/>
+        <Route path="/perfil_usuario" Component={PerfilUsuario} />
+        <Route path="/pesquisar_escola" Component={Pesquisar} />
       </Routes>
     </Router>
   );

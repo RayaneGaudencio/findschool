@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ImagemYt from '../../img/imagem-yt.svg'
-import iconAddress from '../../img/icon-address.svg'
-import iconIntelligence from '../../img/icon-intelligence.svg'
-import iconManagement from '../../img/icon-management.svg'
-import iconMoneyBox from '../../img/icon-money-box.svg'
+import ImagemYt from '../../../img/imagem-yt.svg'
+import iconAddress from '../../../img/icon-address.svg'
+import iconIntelligence from '../../../img/icon-intelligence.svg'
+import iconManagement from '../../../img/icon-management.svg'
+import iconMoneyBox from '../../../img/icon-money-box.svg'
 
 
 const Container = styled.div`
@@ -29,10 +29,17 @@ const ImageYt = styled.img`
 `
 
 const DivFuncionalidades = styled.div`
-
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
 `
 
-const ImgFuncionalidades = styled.img``
+const ImgFuncionalidades = styled.img`
+    width: 65px;
+`
 
 const TextFuncionalidades = styled.h1`
     color: white;
@@ -56,7 +63,6 @@ const LiFuncionalidades1 = styled.li`
     align-items: center;
     justify-content: center;
     width: 117px;
-    padding: 0 0 5px 0;
     text-align: center;
 
     &:hover{
@@ -85,7 +91,7 @@ const PLi = styled.p`
     color: white;
 `
 
-const Funcionamento = () => {
+const Funcionamento = ({ children }) => {
     return (
         <Container>
             <ImageYt src={ImagemYt}></ImageYt>
@@ -114,6 +120,7 @@ const Funcionamento = () => {
                     </LiFuncionalidades1>
 
                 </UlFuncionalidades>
+
             </DivFuncionalidades>
         </Container>
     )
