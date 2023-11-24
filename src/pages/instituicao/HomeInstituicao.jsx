@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
 import EditarInfos from './EditarInfos.jsx'
+import AddEndereco from './AddEndereço.jsx'
 
 
 const HomeInstituicao = () => {
@@ -22,6 +23,7 @@ const HomeInstituicao = () => {
   const [isIconLogoutClicked, setIconLogoutClicked] = useState(false);
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
+  const [isButtonAddEnderecoClicked, setIsButtonAddEnderecoClicked] = useState(false)
   
   useEffect(() => {
     if (isIconPerfilClicked) {
@@ -47,15 +49,25 @@ const HomeInstituicao = () => {
   useEffect(() => {
    if (isIconEditarClicked && isButtonAddSerieClicked) {
     setIsButtonEditarInformacoesClicked(false)
+    setIsButtonAddEnderecoClicked(false)
    }
   }, [isButtonAddSerieClicked]);
 
   useEffect(() => {
     if (isIconEditarClicked && isButtonEditarInformacoesClicked) {
       setIsButtonAddSerieClicked(false)
+      setIsButtonAddEnderecoClicked(false)
      }
      
   }, [isButtonEditarInformacoesClicked]);
+
+  useEffect(() => {
+    if (isIconEditarClicked && isButtonAddEnderecoClicked) {
+      setIsButtonAddSerieClicked(false)    
+      setIsButtonEditarInformacoesClicked(false)
+    }
+     
+  }, [isButtonAddEnderecoClicked]);
 
   const location = useLocation();
   const { escola } = location.state;
@@ -112,6 +124,11 @@ const HomeInstituicao = () => {
               setIsButtonEditarInformacoesClicked(true)}}
             >Editar informações</ButtonOpcoes>
           <ButtonOpcoes
+          isClicked={isButtonAddEnderecoClicked}
+            onClick={() => {
+              setIsButtonAddEnderecoClicked(true)}}
+            >Editar Endereço</ButtonOpcoes>
+          <ButtonOpcoes
           isClicked={isButtonAddSerieClicked}
           onClick={() => {
             setIsButtonAddSerieClicked(true)}}
@@ -123,6 +140,7 @@ const HomeInstituicao = () => {
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
       <EditarInfos escola={escola}/>}
+      {(isIconEditarClicked && isButtonAddEnderecoClicked) && <AddEndereco />}
     </ContainerPage>
   )
 }
