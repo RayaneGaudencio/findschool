@@ -6,9 +6,8 @@ import LoginAdmin from "./pages/Admin/LoginAdmin";
 import HomeUsuario from "./pages/Usuario/HomeUsuario";
 import CadastroUsuario from "./pages/Usuario/CadastroUsuario";
 import LoginUsuario from "./pages/Usuario/LoginUsuario";
-import HomeInstituicao from "./pages/Instituicao/HomeInstituicao";
-import LoginInstituicao from "./pages/Instituicao/LoginInstituicao";
-
+import HomeInstituicao from "./pages/instituicao/HomeInstituicao";
+import LoginInstituicao from "./pages/instituicao/LoginInstituicao";
 
 
 function App() {

@@ -119,14 +119,6 @@ const EditarInfos = ({ escola }) => {
                 <span style={{padding: '2em' }}>{escola.email}</span>
             </div>
             <form>
-                <DescricaoSobInput>Nova senha</DescricaoSobInput>
-                <Input 
-                style={{width: '40%'}}
-                type="text"
-                name="nome"
-                onChange={handleInputChange}
-                onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
-                />
                 {erros.serie.temErros && <DescricaoDadoIncorreto>{erros.serie.mensagem}</DescricaoDadoIncorreto>}
                 <DescricaoSobInput>Nova descrição</DescricaoSobInput>
                 <Input 
@@ -136,7 +128,7 @@ const EditarInfos = ({ escola }) => {
                 onChange={handleInputChange}
                 onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
                 />
-                <DescricaoSobInput>Nova endereço</DescricaoSobInput>
+                <DescricaoSobInput>Novo contato (número com DDD)</DescricaoSobInput>
                 <Input 
                 style={{width: '40%'}}
                 type="text"
@@ -144,7 +136,7 @@ const EditarInfos = ({ escola }) => {
                 onChange={handleInputChange}
                 onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
                 />
-                <DescricaoSobInput>Nova contato (número ou gmail)</DescricaoSobInput>
+                <DescricaoSobInput>Nova senha</DescricaoSobInput>
                 <Input 
                 style={{width: '40%'}}
                 type="text"
@@ -152,31 +144,17 @@ const EditarInfos = ({ escola }) => {
                 onChange={handleInputChange}
                 onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
                 />
-                {erros.descricao.temErros && <DescricaoDadoIncorreto>{erros.descricao.mensagem}</DescricaoDadoIncorreto>}
-                <DescricaoSobInput>Novos extracurriculares</DescricaoSobInput>
-                <select 
-                style={{width: '40%'}}
-                type="text"
-                name="selecao"
-                onChange={handleSelectChange}
-                onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
-                >
-                <option value="">Selecione uma opção</option>
-                {options.map((option, index) => (
-                <option key={index} value={option}>
-                    {option}
-                </option>
-                ))}
-                </select>
-                {erros.selecao.temErros && <DescricaoDadoIncorreto>{erros.selecao.mensagem}</DescricaoDadoIncorreto>}
-                <DescricaoSobInput>Fotos / Descrição da Infraestrutura</DescricaoSobInput>
+                <DescricaoSobInput>Confirmar nova senha</DescricaoSobInput>
                 <Input 
                 style={{width: '40%'}}
                 type="text"
-                />   
+                name="nome"
+                onChange={handleInputChange}
+                onBlur={(e) => verificaPreenchimentoCampos(e.target.name)}
+                />
             </form>
             <div>
-                <Button>Adicionar</Button>
+                <Button style={{marginTop: '4em'}}>Salvar Alterações</Button>
             </div>
         </FormEditarInfos>
     )

@@ -155,9 +155,9 @@ const HomeInstituicao = () => {
       <EditarInfos />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
       <EditarInfos escola={escola}/>}
-      {/* {(isIconPerfilClicked && isButtonHistoricoClicked) &&
-      <HistoricoInstituicao /> 
-      } */}
+      {isIconPerfilClicked && isButtonHistoricoClicked && (
+      <HistoricoInstituicao />
+      )}
       {(isIconPerfilClicked && isButtonEditarPerfilClicked) &&
       <EditarPerfilInstituicao />}
     </ContainerPage>
