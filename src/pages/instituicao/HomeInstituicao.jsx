@@ -14,7 +14,7 @@ import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
 import EditarInfos from './EditarInfos.jsx'
-import AddEndereco from './AddEndereço.jsx'
+import AddEndereco from './AddEndereco.jsx'
 import HistoricoInstituicao from './HistoricoInstituicao.jsx'
 import EditarPerfilInstituicao from './EditarPerfilInstituicao.jsx'
 
@@ -157,7 +157,7 @@ const HomeInstituicao = () => {
           isClicked={isButtonAddEnderecoClicked}
             onClick={() => {
               setIsButtonAddEnderecoClicked(true)}}
-            >Editar Endereço</ButtonOpcoes>
+            >Adicionar Endereço</ButtonOpcoes>
           <ButtonOpcoes
           isClicked={isButtonAddSerieClicked}
           onClick={() => {
