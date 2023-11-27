@@ -15,6 +15,8 @@ import AddSerie from './AddSerie'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
 import EditarInfos from './EditarInfos.jsx'
 import AddEndereco from './AddEndereço.jsx'
+import HistoricoInstituicao from './HistoricoInstituicao.jsx'
+import EditarPerfilInstituicao from './EditarPerfilInstituicao.jsx'
 
 
 const HomeInstituicao = () => {
@@ -24,11 +26,15 @@ const HomeInstituicao = () => {
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
   const [isButtonAddEnderecoClicked, setIsButtonAddEnderecoClicked] = useState(false)
+  const [isButtonHistoricoClicked, setIsButtonHistoricoClicked] = useState(false)
+  const [isButtonEditarPerfilClicked, setIsButtonEditarPerfilClicked] = useState(false)
   
   useEffect(() => {
     if (isIconPerfilClicked) {
       setIconEditarClicked(false);
       setIconLogoutClicked(false)
+      setIsButtonHistoricoClicked(false)
+      setIsButtonEditarPerfilClicked(false)
     } 
   }, [isIconPerfilClicked]);
 
@@ -69,6 +75,20 @@ const HomeInstituicao = () => {
      
   }, [isButtonAddEnderecoClicked]);
 
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonHistoricoClicked) {
+      setIsButtonEditarPerfilClicked(false)
+     }
+     
+  }, [isButtonHistoricoClicked]);
+
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonEditarPerfilClicked) {
+      setIsButtonHistoricoClicked(false)
+     }
+     
+  }, [isButtonEditarPerfilClicked]);
+
   const location = useLocation();
   const { escola } = location.state;
   
@@ -107,8 +127,18 @@ const HomeInstituicao = () => {
             <NomePerfil>{escola.nome}</NomePerfil>
           </div>
           <div>
-            <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
-            <ButtonOpcoes>Histórico</ButtonOpcoes>
+            <ButtonOpcoes
+             isClicked={isButtonEditarPerfilClicked}
+             onClick={() => {
+              setIsButtonEditarPerfilClicked(true)
+             }}
+             >Editar Perfil</ButtonOpcoes>
+            <ButtonOpcoes
+            isClicked={isButtonHistoricoClicked}
+            onClick={() => {
+              setIsButtonHistoricoClicked(true)
+            }}
+            >Histórico</ButtonOpcoes>
           </div>
         </SecondColumn>}
         {(isIconEditarClicked && !isIconLogoutClicked) &&     
@@ -139,8 +169,15 @@ const HomeInstituicao = () => {
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
+      <EditarInfos />}
+      {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
       <EditarInfos escola={escola}/>}
       {(isIconEditarClicked && isButtonAddEnderecoClicked) && <AddEndereco />}
+      {isIconPerfilClicked && isButtonHistoricoClicked && (
+      <HistoricoInstituicao />
+      )}
+      {(isIconPerfilClicked && isButtonEditarPerfilClicked) &&
+      <EditarPerfilInstituicao />}
     </ContainerPage>
   )
 }
