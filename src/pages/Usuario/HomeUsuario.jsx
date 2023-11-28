@@ -40,7 +40,7 @@ const HomeUsuario = () => {
                         ))}
                     </Swiper>
                 </Banner>
-
+                
                 <FormSearchSchool></FormSearchSchool>
 
                 <Funcionamento></Funcionamento>

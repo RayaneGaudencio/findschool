@@ -24,9 +24,8 @@ const BarraHeader = styled.header`
 `
 
 const LogoImg = styled.img`
-    width: 230px;
     height: 100%;
-    transform: scale(2);
+    transform: scale(2) translate(10px);
 `
 
 const LogoMenu = styled.img`
@@ -136,17 +135,19 @@ const HideBarraLateral = () => {
 const Header = () => {
     return (
         <BarraHeader>
-            <LogoImg src={LogoSVG}></LogoImg>
+            <Link to={'/'}>
+                <LogoImg src={LogoSVG}></LogoImg>
+            </Link>
             <TextoCentral>Um novo conceito da sua escola ideal!</TextoCentral>
             <ListHeader>
                 <ItemList>
                     <TextoList>
-                        <Link>
+                        <Link to={'/login_usuario'}>
                             <TextoLink>Entrar</TextoLink>
                         </Link>
                         <Texto>ou</Texto>
-                        <Link>
-                            <TextoLink>criar conta</TextoLink>
+                        <Link to={'/cadastro_usuario'}>
+                            <TextoLink>Criar conta</TextoLink>
                         </Link>
                     </TextoList>
                 </ItemList>
@@ -171,7 +172,7 @@ const Header = () => {
                         <Link to={'/perfil_usuario'}>
                             <TextoBarraLateral>
                                 <IconBarraLateral src={IconPerfil}></IconBarraLateral>
-                                <Texto>perfil</Texto>
+                                <Texto>Perfil</Texto>
                             </TextoBarraLateral>
                         </Link>
                     </ItemListBarraLateral>
@@ -202,7 +203,7 @@ const Header = () => {
                             </TextoBarraLateral>
                         </Link>
                     </ItemListBarraLateral>
-                    
+
                 </ListBarraLateral>
             </BarraLateral>
         </BarraHeader>
