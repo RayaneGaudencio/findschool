@@ -169,10 +169,10 @@ const HomeInstituicao = () => {
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
-      <EditarInfos />}
+      <EditarInfos escola={escola}/>}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
       <EditarInfos escola={escola}/>}
-      {(isIconEditarClicked && isButtonAddEnderecoClicked) && <AddEndereco />}
+      {(isIconEditarClicked && isButtonAddEnderecoClicked) && <AddEndereco escola={escola}/>}
       {isIconPerfilClicked && isButtonHistoricoClicked && (
       <HistoricoInstituicao />
       )}

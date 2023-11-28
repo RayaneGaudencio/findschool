@@ -73,7 +73,8 @@ const LoginInstituicao = () => {
     
             const escola = {
               nome: response.data.nome,
-              email: response.data.email
+              email: response.data.email,
+              cnpj: response.data.cnpj
             }
     
             // Redirecionamento para a página HomeInstituicao com os dados da instituicao cadastrada
