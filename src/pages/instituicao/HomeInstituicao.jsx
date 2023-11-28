@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
 import EditarInfos from './EditarInfos.jsx'
+import MeuPerfil from './MeuPerfil.jsx'
 
 
 const HomeInstituicao = () => {
@@ -22,6 +23,8 @@ const HomeInstituicao = () => {
   const [isIconLogoutClicked, setIconLogoutClicked] = useState(false);
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
+  const [isButtonMeuPerfilClicked, setIsButtonMeuPerfilClicked] = useState(false)
+  const [isButtonHistoricoClicked, setIsButtonHistoricoClicked] = useState(false)
   
   useEffect(() => {
     if (isIconPerfilClicked) {
@@ -57,8 +60,23 @@ const HomeInstituicao = () => {
      
   }, [isButtonEditarInformacoesClicked]);
 
-  const location = useLocation();
-  const { escola } = location.state;
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonMeuPerfilClicked) {
+      setIsButtonHistoricoClicked(false)
+     }
+     
+  }, [isButtonMeuPerfilClicked]);
+
+  useEffect(() => {
+    if (isIconPerfilClicked && isButtonHistoricoClicked) {
+      setIsButtonMeuPerfilClicked(false)
+     }
+     
+  }, [isButtonHistoricoClicked]);
+
+
+  // const location = useLocation();
+  // const { escola } = location.state;
   
 
   return (
@@ -92,18 +110,26 @@ const HomeInstituicao = () => {
         <SecondColumn> 
           <div>
             <ImagemPerfil src={Circulo} />
-            <NomePerfil>{escola.nome}</NomePerfil>
+            {/* <NomePerfil>{escola.nome}</NomePerfil> */}
           </div>
           <div>
-            <ButtonOpcoes>Meu Perfil</ButtonOpcoes>
-            <ButtonOpcoes>Histórico</ButtonOpcoes>
+            <ButtonOpcoes
+            isClicked={isButtonMeuPerfilClicked}
+            onClick={() => {
+              setIsButtonMeuPerfilClicked(true)}}
+            >Meu Perfil</ButtonOpcoes>
+            <ButtonOpcoes
+            isClicked={isButtonHistoricoClicked}
+            onClick={() => {
+              setIsButtonHistoricoClicked(true)}}
+            >Histórico</ButtonOpcoes>
           </div>
         </SecondColumn>}
         {(isIconEditarClicked && !isIconLogoutClicked) &&     
         <SecondColumn>
           <div>
             <ImagemPerfil src={Circulo} /> 
-            <NomePerfil>{escola.nome}</NomePerfil>
+            {/* <NomePerfil>{escola.nome}</NomePerfil> */}
           </div>
           <div>
           <ButtonOpcoes
@@ -122,7 +148,10 @@ const HomeInstituicao = () => {
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
-      <EditarInfos escola={escola}/>}
+      <EditarInfos />}
+      {(isIconPerfilClicked && isButtonMeuPerfilClicked) && 
+      <MeuPerfil />}
+
     </ContainerPage>
   )
 }
