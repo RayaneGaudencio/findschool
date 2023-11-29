@@ -32,12 +32,37 @@ const HomeUsuario = () => {
     return (
         <Container>
             <Header></Header>
-            <Banner>
-                <BannerImg path={Banner1}></BannerImg>
-            </Banner>
-            <FormSearchSchool></FormSearchSchool>
-            <Funcionamento></Funcionamento>
-        </>
+            <Main>
+                <Banner>
+                    <Swiper
+                        modules={[Navigation, Pagination]}
+                        navigation
+                        pagination
+                        loop={true}
+
+                    >
+                        {slides.map(slide => (
+                            <SwiperSlide>
+                                <BannerImg path={slide}></BannerImg>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
+                </Banner>
+                
+                <FormSearchSchool></FormSearchSchool>
+
+                <Funcionamento></Funcionamento>
+
+                <Instituicao>
+                    <Card path={imgInstituiacao1} nomeInstituicao={'Escola Cognitivo'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                    <Card path={imgInstituiacao1} nomeInstituicao={'Cólegio Santa Maria'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                    <Card path={imgInstituiacao1} nomeInstituicao={'Cólegio Morada '} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                </Instituicao>
+
+                <Parceria></Parceria>
+            </Main>
+            <Footer></Footer>
+        </Container>
     )
 }
 
