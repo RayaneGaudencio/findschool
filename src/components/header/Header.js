@@ -175,12 +175,12 @@ const Header = () => {
                                 <Texto>Perfil</Texto>
                             </TextoBarraLateral>
                         </Link>
-                        <Link>
+                    </ItemListBarraLateral>
+                    <ItemListBarraLateral>
                             <TextoBarraLateral>
                                 <IconBarraLateral src={IconInstituicao}></IconBarraLateral>
                                 <Texto>Ensino</Texto>
                             </TextoBarraLateral>
-                        </Link>
                     </ItemListBarraLateral>
 
                     <ItemListBarraLateral>
