@@ -20,6 +20,8 @@ function App() {
         <Route path="/admin" Component={HomeAdmin} />
         <Route path="/login_admin" Component={LoginAdmin} />
         <Route path="/" Component={HomeUsuario} />
+        <Route path="/perfil_usuario" Component={PerfilUsuario} />
+        <Route path="/pesquisar_escola" Component={Pesquisar} />
         <Route path="/cadastro_usuario" Component={CadastroUsuario}/>
         <Route path="/login_usuario" Component={LoginUsuario}/>
         <Route path="/instituicao" Component={HomeInstituicao}/>
