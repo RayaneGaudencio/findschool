@@ -1,7 +1,14 @@
 import Header from "../../components/header/Header"
 import Banner from "../../components/pagina_usuario/home/Banner_home"
 import BannerImg from '../../components/banner/Banner'
-import ImagemBanner from '../../img/banner-home.svg'
+
+import ImagemBanner1 from '../../img/banner/banner-1.png'
+import ImagemBanner2 from '../../img/banner/banner-2.png'
+import ImagemBanner3 from '../../img/banner/banner-3.png'
+import ImagemBanner4 from '../../img/banner/banner-4.png'
+import ImagemBanner5 from '../../img/banner/banner-5.png'
+import ImagemBanner6 from '../../img/banner/banner-6.png'
+
 import FormSearchSchool from "../../components/form_search_school/form_search_schoo"
 import Funcionamento from "../../components/pagina_usuario/home/Funcionamento"
 import Instituicao from "../../components/pagina_usuario/home/Instituicoes_bem_avaliadas"
@@ -19,7 +26,7 @@ import Container from "../../utils/Container"
 
 const HomeUsuario = () => {
 
-    const slides = [ImagemBanner, ImagemBanner, ImagemBanner, ImagemBanner]
+    const slides = [ImagemBanner1, ImagemBanner2, ImagemBanner3, ImagemBanner4, ImagemBanner5, ImagemBanner6]
 
     return (
         <Container>
