@@ -80,8 +80,10 @@ const Form = styled.form`
 const FormSearchSchool = () => {
 
     const [states, setStates] = useState([])
-    const [currentStateId, setCurrentStateId] = useState('')
+    const [currentStateId, setCurrentStateId] = useState('') // esse estado pro estado selecionado
     const [cities, setCities] = useState([])
+    const [selectedCity, setSelectedCity] = useState('')
+    const [selectedState, setSelectedState] = useState('')
 
     useEffect(() => {
         if (currentStateId !== '') {
@@ -100,12 +102,23 @@ const FormSearchSchool = () => {
             .then((response) => response.json())
             .then((data) => setStates(data))
 
-    })
+    }, [])
 
     function handleChangeState(event) {
-        const selectStateId = event.target.value
-        setCurrentStateId(selectStateId)
-    }
+        const selectStateId = event.target.value;
+        setCurrentStateId(selectStateId);
+      
+        fetch(`https://servicodados.ibge.gov.br/api/v1/localidades/estados/${selectStateId}`, {
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            const selectedSigla = data.sigla;
+            setSelectedState(selectedSigla);
+          })
+          .catch((error) => console.log(error));
+      
+      }
+
 
     return (
         <DivForm>
@@ -123,7 +136,7 @@ const FormSearchSchool = () => {
                     })}
                 </Select_input>
 
-                <Select_input disabled={!(cities.length > 0)}>
+                <Select_input disabled={!(cities.length > 0)} onChange={(e) => setSelectedCity(e.target.value)}>
                     {!(cities.length > 0) && (
                         <Option_input value={""}>Preencha o estado</Option_input>
                     )}
