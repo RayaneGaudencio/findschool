@@ -14,6 +14,7 @@ import { useLocation } from 'react-router-dom';
 import AddSerie from './AddSerie.jsx'
 import LogoutInstituicao from './LogoutInstituicao.jsx'
 import EditarInfos from './EditarInfos.jsx'
+import AddEndereco from './AddEndereco.jsx'
 import HistoricoInstituicao from './HistoricoInstituicao.jsx'
 import EditarPerfilInstituicao from './EditarPerfilInstituicao.jsx'
 
@@ -24,6 +25,7 @@ const HomeInstituicao = () => {
   const [isIconLogoutClicked, setIconLogoutClicked] = useState(false);
   const [isButtonAddSerieClicked, setIsButtonAddSerieClicked] = useState(false)
   const [isButtonEditarInformacoesClicked, setIsButtonEditarInformacoesClicked] = useState(false)
+  const [isButtonAddEnderecoClicked, setIsButtonAddEnderecoClicked] = useState(false)
   const [isButtonHistoricoClicked, setIsButtonHistoricoClicked] = useState(false)
   const [isButtonEditarPerfilClicked, setIsButtonEditarPerfilClicked] = useState(false)
   
@@ -53,15 +55,25 @@ const HomeInstituicao = () => {
   useEffect(() => {
    if (isIconEditarClicked && isButtonAddSerieClicked) {
     setIsButtonEditarInformacoesClicked(false)
+    setIsButtonAddEnderecoClicked(false)
    }
   }, [isButtonAddSerieClicked]);
 
   useEffect(() => {
     if (isIconEditarClicked && isButtonEditarInformacoesClicked) {
       setIsButtonAddSerieClicked(false)
+      setIsButtonAddEnderecoClicked(false)
      }
      
   }, [isButtonEditarInformacoesClicked]);
+
+  useEffect(() => {
+    if (isIconEditarClicked && isButtonAddEnderecoClicked) {
+      setIsButtonAddSerieClicked(false)    
+      setIsButtonEditarInformacoesClicked(false)
+    }
+     
+  }, [isButtonAddEnderecoClicked]);
 
   useEffect(() => {
     if (isIconPerfilClicked && isButtonHistoricoClicked) {
@@ -142,6 +154,11 @@ const HomeInstituicao = () => {
               setIsButtonEditarInformacoesClicked(true)}}
             >Editar informações</ButtonOpcoes>
           <ButtonOpcoes
+          isClicked={isButtonAddEnderecoClicked}
+            onClick={() => {
+              setIsButtonAddEnderecoClicked(true)}}
+            >Adicionar Endereço</ButtonOpcoes>
+          <ButtonOpcoes
           isClicked={isButtonAddSerieClicked}
           onClick={() => {
             setIsButtonAddSerieClicked(true)}}
@@ -152,9 +169,10 @@ const HomeInstituicao = () => {
       <AddSerie />}
       {isIconLogoutClicked && <LogoutInstituicao />}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
-      <EditarInfos />}
+      <EditarInfos escola={escola}/>}
       {(isIconEditarClicked && isButtonEditarInformacoesClicked) && 
       <EditarInfos escola={escola}/>}
+      {(isIconEditarClicked && isButtonAddEnderecoClicked) && <AddEndereco escola={escola}/>}
       {isIconPerfilClicked && isButtonHistoricoClicked && (
       <HistoricoInstituicao />
       )}

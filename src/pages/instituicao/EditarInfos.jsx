@@ -109,6 +109,7 @@ const EditarInfos = ({ escola }) => {
         }
       }
 
+
     return (
         <FormEditarInfos>
             <div>
