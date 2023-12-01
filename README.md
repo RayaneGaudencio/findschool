@@ -16,10 +16,13 @@ Tabela de Conteúdos
 #### O FindSchool é um projeto que surgiu no 4º período da Residência do Porto Digital em parceria com a ACCENTURE, que visa como objetivo final, auxiliar pais/estudantes na busca por uma escola ideal com base em: localização, preço, avaliação e grau de ensino, assim proporcionando uma experiência extremamente completa para o usuário.
 
 # Funcionalidades
-        - [x] Cadastro de usuário
-        - [x] Cadastro de instituição
-        - [x] Alterar dados de cadastro [* apenas para usuário *]
-        - [x] Buscar escola [* busca baseada em filtro ex: "preço", "avaliação", "grau de ensino" e etc...* ]
+
+### working features:
+- [x] Cadastro de usuário
+- [x] Cadastro de instituição
+- [x] Alterar dados de cadastro [* apenas para usuário *]
+- [x] Buscar escola [* busca baseada em filtro ex: "preço", "avaliação", "grau de ensino" e etc...* ]
+
 #### Exemplo de tela: "Home"   
 
 <img src="src\img\img-home.jpeg" alt="image" height="200" width="320"></img>
