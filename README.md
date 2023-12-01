@@ -37,11 +37,11 @@ Tabela de Conteúdos
 # Colaboradores:
 
 * 🍺 Alice Dantas:       [See my github](https://github.com/AliceDantas1)
-* 🎲 Pedro Santana:      [See my github](https://github.com/ranondiniz)
-* 🎭 Ranon Diniz:        [See my github](https://github.com/pedrosantan4)
-* 🤖 Rayane Gaudêncio:   [See my github](https://github.com/pedrosantan4)
-* ✝️ Rarissa Kamille:    [See my github](https://github.com/pedrosantan4)
-* 🦏 Thailanny Fernanda: [See my github](https://github.com/pedrosantan4)
+* 🎲 Pedro Santana:      [See my github](https://github.com/pedrosantan4)
+* 🎭 Ranon Diniz:        [See my github](https://github.com/ranondiniz)
+* 🤖 Rayane Gaudêncio:   [See my github](https://github.com/RayaneGaudencio)
+* ✝️ Rarissa Kamille:    [See my github](https://github.com/Rarissak)
+* 🦏 Thaylanny Fernanda: [See my github](https://github.com/Thaylanny)
 * 💸 Vitor Paz:          [See my github](https://github.com/Viipaxx)
 * 📖 Vinícius Rodrigues: [See my github](https://github.com/viniciusvill)
 
