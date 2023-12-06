@@ -94,8 +94,14 @@ const NaoEncontrado = styled.div`
 import API_URL from '../../config/config'
 import Instituicao from "../pagina_usuario/home/Instituicoes_bem_avaliadas"
 import Card from "../card_instituicao/Card"
-import imgInstituiacao1 from '../../img/instituicao1.svg'
+
+import ImgEscola1 from '../../img/img-escola-4.jpg'
+import ImgEscola2 from '../../img/img-escola-5.jpg'
+import ImgEscola3 from '../../img/img-escola-6.jpg'
+import ImgEscola4 from '../../img/img-escola-7.jpg'
 const FormSearchSchool = () => {
+
+    const imagensEscolas = [ImgEscola1, ImgEscola2, ImgEscola3, ImgEscola4];
 
     const [states, setStates] = useState([])
     const [currentStateId, setCurrentStateId] = useState('') // esse estado pro estado selecionado
@@ -219,7 +225,8 @@ console.log(cities)
             {(escolas && escolas.length > 0) ? (
             <ContainerEscolas>
                 {escolas.map((escola, index) => (
-                <Card path={imgInstituiacao1} 
+                <Card 
+                path={imagensEscolas[index % imagensEscolas.length]}  
                 nomeInstituicao={`${escola.nome}`} 
                 descricao={`${escola.rua}, ${escola.bairro}, ${escola.cidade} - ${escola.uf}, ${escola.cep}`} />
                 ))}
