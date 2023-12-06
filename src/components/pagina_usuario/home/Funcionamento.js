@@ -94,7 +94,7 @@ const PLi = styled.p`
 const Funcionamento = ({ children }) => {
     return (
         <Container>
-            <ImageYt src={ImagemYt}></ImageYt>
+             <iframe width="560" height="315" src="https://www.youtube.com/watch?v=GOpCQKM7CrY" frameborder="0" allowfullscreen></iframe>
             <DivFuncionalidades>
                 <TextFuncionalidades>Confira como funciona</TextFuncionalidades>
                 <UlFuncionalidades>
