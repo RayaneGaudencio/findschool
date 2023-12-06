@@ -25,6 +25,10 @@ import Parceria from "../../components/pagina_usuario/home/Parceria"
 import Main from "../../components/main/Main"
 import Container from "../../utils/Container"
 
+import ImgEscola1 from '../../img/img-escola-1.jpg'
+import ImgEscola2 from '../../img/img-escola-7.jpg'
+import ImgEscola3 from '../../img/img-escola-5.jpg'
+
 const HomeUsuario = () => {
 
     const slides = [ImagemBanner1, ImagemBanner2, ImagemBanner3, ImagemBanner4, ImagemBanner5, ImagemBanner6, ImagemBanner7]
@@ -54,9 +58,9 @@ const HomeUsuario = () => {
                 <Funcionamento></Funcionamento>
 
                 <Instituicao>
-                    <Card path={imgInstituiacao1} nomeInstituicao={'Escola Cognitivo'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
-                    <Card path={imgInstituiacao1} nomeInstituicao={'Cólegio Santa Maria'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
-                    <Card path={imgInstituiacao1} nomeInstituicao={'Cólegio Morada '} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                    <Card path={ImgEscola1} nomeInstituicao={'Escola Cognitivo'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                    <Card path={ImgEscola2} nomeInstituicao={'Cólegio Santa Maria'} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
+                    <Card path={ImgEscola3} nomeInstituicao={'Cólegio Morada '} descricao={'R. das Laranjeiras, 3887 - Paiva, Cabo de Santo Agostinho - PE, 54522-165'}></Card>
                 </Instituicao>
 
                 <Parceria></Parceria>
