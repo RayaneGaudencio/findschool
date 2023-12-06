@@ -90,11 +90,14 @@ const LiFuncionalidades2 = styled.li`
 const PLi = styled.p`
     color: white;
 `
-
+import Video from './video.mp4';
 const Funcionamento = ({ children }) => {
     return (
         <Container>
-             <iframe width="560" height="315" src="https://www.youtube.com/watch?v=GOpCQKM7CrY" frameborder="0" allowfullscreen></iframe>
+            <video width="640" height="360" controls loop autoplay>
+                <source src={Video} type="video/mp4" />
+                Seu navegador não suporta o elemento de vídeo.
+            </video>
             <DivFuncionalidades>
                 <TextFuncionalidades>Confira como funciona</TextFuncionalidades>
                 <UlFuncionalidades>
