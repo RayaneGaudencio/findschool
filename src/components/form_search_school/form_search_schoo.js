@@ -84,6 +84,13 @@ const ContainerEscolas = styled.section`
     justify-content: center;
     gap: 2em;
 `
+
+const NaoEncontrado = styled.div`
+    margin-top: 2em;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: #DC4B0C;
+`
 import API_URL from '../../config/config'
 import Instituicao from "../pagina_usuario/home/Instituicoes_bem_avaliadas"
 import Card from "../card_instituicao/Card"
@@ -218,7 +225,7 @@ console.log(cities)
                 ))}
             </ContainerEscolas>
             ) : (
-                <div>{escolas && escolas.message}</div>
+                <NaoEncontrado>{escolas && escolas.message}</NaoEncontrado>
             )}
         </DivForm>
     )
