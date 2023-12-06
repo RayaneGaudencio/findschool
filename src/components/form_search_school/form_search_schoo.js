@@ -213,7 +213,7 @@ console.log(cities)
             <ContainerEscolas>
                 {escolas.map((escola, index) => (
                 <Card path={imgInstituiacao1} 
-                nomeInstituicao={'Escola Cognitivo'} 
+                nomeInstituicao={`${escola.nome}`} 
                 descricao={`${escola.rua}, ${escola.bairro}, ${escola.cidade} - ${escola.uf}, ${escola.cep}`} />
                 ))}
             </ContainerEscolas>
