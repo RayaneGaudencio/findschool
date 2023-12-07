@@ -29,7 +29,8 @@ Tabela de Conteúdos
 
 # Tecnologias usadas
 #### O projeto foi segmentado em duas partes, uma contendo a API e esta, contendo o front end. Confira abaixo as tecnologias usadas nesta parte:
- - JSX
+ - React
+ - Styled Components
  - HMTL 5
  - CSS 3
  - JavaScript
