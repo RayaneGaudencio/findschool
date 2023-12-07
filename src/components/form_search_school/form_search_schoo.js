@@ -63,7 +63,7 @@ const Icon = styled.img`
 `
 
 const DivForm = styled.div`
-    margin: 50px auto;
+    margin: 20px auto;
     width: auto;
     display: flex;
     flex-direction: column;
